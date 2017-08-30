@@ -36,11 +36,11 @@ def get_log():
 	return (training_set, validation_set)
 
 def brightness_process(image):
-	image = cv2.cvtColor(image, cv2.COLOR_RGB2HSV)
-	brightness_random =  .23 + np.random.uniform()
-	image[:,:,2] = image[:,:,2]*brightness_random
-	image[:,:,2][image[:,:,2]>255] = 255
-	image = cv2.cvtColor(image, cv2.COLOR_HSV2RGB) 
+	image = cv2.cvtColor(image, cv2.COLOR_RGB2HSV) # convert from RGB to HSV color
+	brightness_random =  .23 + np.random.uniform() # random brightness 
+	image[:,:,2] = image[:,:,2]*brightness_random  # add brightness to the image
+	image[:,:,2][image[:,:,2]>255] = 255		   # keep image at 255 if greater than that 
+	image = cv2.cvtColor(image, cv2.COLOR_HSV2RGB) # convert back to RGB from HSV
 	return image
 
 def shadow_augmentation(image):
@@ -68,11 +68,11 @@ def shadow_augmentation(image):
 
 def process_images(center_path, left_path, right_path, steering, images, steering_set):
 	# center
-	center_image = cv2.imread('data/IMG/' + center_path.split('/')[-1])
-	center_image = cv2.cvtColor(center_image, cv2.COLOR_BGR2RGB)
-	center_image = brightness_process(center_image)
-	center_image = shadow_augmentation(center_image)
-	images.append(center_image)
+	center_image = cv2.imread('data/IMG/' + center_path.split('/')[-1]) # extract the image from the path
+	center_image = cv2.cvtColor(center_image, cv2.COLOR_BGR2RGB)		# convert BGR to RGB
+	center_image = brightness_process(center_image)						# brightness process
+	center_image = shadow_augmentation(center_image)					# shadow augmentation 
+	images.append(center_image)											
 	steering_set.append(steering)
 	# left
 	left_image = cv2.imread('data/IMG/' + left_path.split('/')[-1])
@@ -88,7 +88,7 @@ def process_images(center_path, left_path, right_path, steering, images, steerin
 	right_image = shadow_augmentation(right_image)
 	images.append(right_image)
 	steering_set.append(steering - steering_correction)
-	if abs(steering) > steering_threshold:
+	if abs(steering) > steering_threshold:			# if steering is greater than steering_threshold, then flip the image.
 		images.append(cv2.flip(center_image, 1)) 	# flip images (augmentation)
 		steering_set.append(-steering)
 		images.append(cv2.flip(left_image, 1))		
@@ -98,13 +98,13 @@ def process_images(center_path, left_path, right_path, steering, images, steerin
 
 def generators(datasets, batch_size=batch_size):
 	while True: 
-		shuffle(datasets)
+		shuffle(datasets) # shuffle the datasets
 		for offset in range(0, len(datasets), batch_size):
 			batch_lines = datasets[offset : offset + batch_size]
 			images = []
 			steering_set = []
 			for line in batch_lines:
-				steering = float(line[3])
+				steering = float(line[3]) 
 				process_images(line[0], line[1], line[2], steering, images, steering_set)
 			X_train = np.asarray(images)
 			y_train = np.asarray(steering_set)
