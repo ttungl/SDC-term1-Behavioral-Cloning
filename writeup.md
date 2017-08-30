@@ -19,34 +19,6 @@
 * Test that the model successfully drives around track one without leaving the road.
 * Summarize the results with a written report.
 
-[//]: # (Image References)
-[image4]: ./images_output/nvidia_model.jpg "nvidia model"
-
-[image5]: ./images_output/center_output.png "center image"
-[image6]: ./images_output/left_output.png "left image"
-[image7]: ./images_output/right_output.png "right image"
-
-[image8]: ./images_output/bgr_image_input.png "bgr"
-[image9]: ./images_output/rgb_image_input.png "rgb output"
-
-[image10]: ./images_output/brightness1.png "brightness 1"
-[image11]: ./images_output/brightness2.png "brightness 2"
-[image12]: ./images_output/brightness3.png "brightness 3"
-[image13]: ./images_output/brightness4.png "brightness 4"
-
-[image14]: ./images_output/shadow1.png "shadow 1"
-[image15]: ./images_output/shadow2.png "shadow 2"
-[image16]: ./images_output/shadow4.png "shadow 4"
-[image17]: ./images_output/shadow6.png "shadow 6"
-[image18]: ./images_output/shadow8.png "shadow 8"
-[image19]: ./images_output/shadow9.png "shadow 9"
-
-[image20]: ./images_output/right_input.png "right input flip"
-[image21]: ./images_output/right_input_flipped.png "flipped to left"
-
-[image22]: ./images_output/loss_valid.png "MSE loss"
-
-
 This implementation followed the [rubric points](https://review.udacity.com/#!/rubrics/432/view). The details will be explained in the next sections.  
 
 #### My submission includes the required files: 
@@ -66,12 +38,28 @@ The model uses severval methods for images processing and use a modified convolu
 
 * `get_log()`: uses to read the data log from `driving_log.csv`, then shuffling the datasets, splits into the training sets and validation sets with the ratio of `80`:`20`. `random_state` is used for [initializing internal random number generator](https://stackoverflow.com/a/42197534/2881205), which decides the splitting of data into train and test indices. Finally, it returns the training set and validation set.
 
-* `brightness_process(image)`: uses to process the brightness of the image. 
+I read the data input using openCV library `cv2.imread`, so the image is BGR color as on the left, and on the right, the image is converted to RGB:
+<img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/bgr_image_input.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/rgb_image_input.png" height="144" width="270"> 
 
-* `shadow_augmentation(image)`: uses to create the shadow for the images. This method has been inspired from [here](https://chatbotslife.com/using-augmentation-to-mimic-human-driving-496b569760a9). The basic idea is to create the random shadows to mask on the images.
+
+The input images
+<img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/center_output.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/left_output.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/right_output.png" height="144" width="270">
+
+* `brightness_process(image)`: uses to process the brightness of the image. The images after processing are as follows.
+
+<img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/brightness1.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/brightness2.png" height="144" width="270"> 
+<img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/brightness3.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/brightness4.png" height="144" width="270"> 
+
+* `shadow_augmentation(image)`: uses to create the shadow for the images. This method has been inspired from [here](https://chatbotslife.com/using-augmentation-to-mimic-human-driving-496b569760a9). The basic idea is to create the random shadows to mask on the images. The output of this method is as below.
+
+<img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/shadow1.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/shadow2.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/shadow4.png" height="144" width="270"> 
+
+<img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/shadow6.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/shadow8.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/shadow9.png" height="144" width="270"> 
 
 * `process_images(center_path, left_path, right_path, steering, images, steering_set)`: uses to process the images input on the center, left, and right angles. If the steering angle is greater than the steering threshold, it will flip the image to recover into the center track. After playing a couple of experiments with the tuning parameters, I fixed my tuning parameters with `steering_correction` = `0.15` and
 `steering_threshold` = `0.285` for the best performance of my model. 
+
+<img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/right_input.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/right_input_flipped.png" height="144" width="270">
 
 * `generators(datasets, batch_size=batch_size)`: uses a [data generator](https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/) to work with large amount of data for more memory-efficient. 
 
@@ -80,7 +68,8 @@ I used the [data](https://d17h27t6h515a5.cloudfront.net/topher/2016/December/584
 #### Model Architecture and Training Strategy
 
 + The model architecture is inherited from nvidia architecture which has been verified for autonomous driving vehicles. 
-![Nvidia model][image4]
+
+<img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/nvidia_model.jpg" height="312" width="270">
 
 + I modified the model architecture as below, with 5 convolutional layers and 5 Fully-connected layers.   
 
@@ -111,10 +100,8 @@ I used the [data](https://d17h27t6h515a5.cloudfront.net/topher/2016/December/584
 
 + This time, the driving got better, but still went off the road when it crosses the shadow or brightness areas. So I used brightness method and shadow augmentation to train the model to deal with these issues. The driving got better when crossing the shadow and bridge areas.
 
-```
-Input images
-<img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/center_output.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/left_output.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/right_output.png" height="144" width="270">
-```
+
+
 
 
 My model has been trained using AWS EC2 from Amazon. After I launched an GPU instances, it contains the IP address that helps me to access to that for training the model.
