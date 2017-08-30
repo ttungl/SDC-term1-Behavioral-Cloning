@@ -1,15 +1,22 @@
-#**Behavioral Cloning** 
-
+### SDC-term1
+    
+    Tung Thanh Le
+    ttungl at gmail dot com
+   
+**Behavioral Cloning Project**
 ---
 
-**Behavioral Cloning Project**
+##### Project description: 
++ Use Deep Learning to Clone Driving Behavior.
+
+<img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/gifs/bridge1.gif" height="165" width="300">   <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/gifs/curve1.gif" height="165" width="300">  <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/gifs/view1.gif" height="165" width="300">
 
 The goals / steps of this project are the following:
-* Use the simulator to collect data of good driving behavior
-* Build, a convolution neural network in Keras that predicts steering angles from images
-* Train and validate the model with a training and validation set
-* Test that the model successfully drives around track one without leaving the road
-* Summarize the results with a written report
+* Use the simulator to collect data of good driving behavior.
+* Build, a convolution neural network (CNN) in Keras that predicts steering angles from images.
+* Train and validate the model with a training and validation set.
+* Test that the model successfully drives around track one without leaving the road.
+* Summarize the results with a written report.
 
 
 [//]: # (Image References)
@@ -39,15 +46,75 @@ The goals / steps of this project are the following:
 [image22]: ./images_output/loss_valid.png "MSE loss"
 
 
+This implementation followed the points of [rubric points](https://review.udacity.com/#!/rubrics/432/view). The details will be explained in the next sections.  
+
+My submission includes the required files: 
+* [model.py](https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/model.py) script used to create and train the model.
+* [drive.py](https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/drive.py) script to drive the car.
+* [model.h5](https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/model.h5) a trained Keras model.
+* [a report](https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/writeup.md) writeup file.
+* [video.mp4](https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/video.mp4) (a video recording of your vehicle driving autonomously around the track for at least one full lap).
+
+#### Quality of Code
+
+CRITERIA
+MEETS SPECIFICATIONS
+Is the code functional?
+
+The model provided can be used to successfully operate the simulation.
+
+Is the code usable and readable?
+
+The code in model.py uses a Python generator, if needed, to generate data for training rather than storing the training data in memory. The model.py code is clearly organized and comments are included where needed.
+
+Model Architecture and Training Strategy
+
+CRITERIA
+MEETS SPECIFICATIONS
+Has an appropriate model architecture been employed for the task?
+
+The neural network uses convolution layers with appropriate filter sizes. Layers exist to introduce nonlinearity into the model. The data is normalized in the model.
+
+Has an attempt been made to reduce overfitting of the model?
+
+Train/validation/test splits have been used, and the model uses dropout layers or other methods to reduce overfitting.
+
+Have the model parameters been tuned appropriately?
+
+Learning rate parameters are chosen with explanation, or an Adam optimizer is used.
+
+Is the training data chosen appropriately?
+
+Training data has been chosen to induce the desired behavior in the simulation (i.e. keeping the car on the track).
+
+Architecture and Training Documentation
+
+CRITERIA
+MEETS SPECIFICATIONS
+Is the solution design documented?
+
+The README thoroughly discusses the approach taken for deriving and designing a model architecture fit for solving the given problem.
+
+Is the model architecture documented?
+
+The README provides sufficient details of the characteristics and qualities of the architecture, such as the type of model used, the number of layers, the size of each layer. Visualizations emphasizing particular qualities of the architecture are encouraged.
+
+Is the creation of the training dataset and training process documented?
+
+The README describes how the model was trained and what the characteristics of the dataset are. Information such as how the dataset was generated and examples of images from the dataset must be included.
+
+Simulation
+
+CRITERIA
+MEETS SPECIFICATIONS
+Is the car able to navigate correctly on test data?
+
+No tire may leave the drivable portion of the track surface. The car may not pop up onto ledges or roll over any surfaces that would otherwise be considered unsafe (if humans were in the vehicle). 
 
 
-## Rubric Points
-### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
-
-<img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/gifs/bridge1.gif" height="165" width="300">   <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/gifs/curve1.gif" height="165" width="300">
 
 
-![][image5]
+<!-- ![][image5] -->
 
 
 <!-- 
