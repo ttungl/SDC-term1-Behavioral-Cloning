@@ -47,7 +47,7 @@
 [image22]: ./images_output/loss_valid.png "MSE loss"
 
 
-This implementation followed the points of [rubric points](https://review.udacity.com/#!/rubrics/432/view). The details will be explained in the next sections.  
+This implementation followed the [rubric points](https://review.udacity.com/#!/rubrics/432/view). The details will be explained in the next sections.  
 
 #### My submission includes the required files: 
 * [model.py](https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/model.py) script used to create and train the model.
@@ -73,17 +73,16 @@ The model uses severval methods for images processing and use a modified convolu
 * `process_images(center_path, left_path, right_path, steering, images, steering_set)`: uses to process the images input on the center, left, and right angles. If the steering angle is greater than the steering threshold, it will flip the image to recover into the center track. After playing a couple of experiments with the tuning parameters, I fixed my tuning parameters with `steering_correction` = `0.15` and
 `steering_threshold` = `0.285` for the best performance of my model. 
 
-* `generators(datasets, batch_size=batch_size)`: uses a data generator [create the infinite sequence](https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/) to work with large amount of data for more memory-efficient. 
+* `generators(datasets, batch_size=batch_size)`: uses a [data generator](https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/) to work with large amount of data for more memory-efficient. 
 
 I used the [data](https://d17h27t6h515a5.cloudfront.net/topher/2016/December/584f6edd_data/data.zip) provided by Udacity for training my model. The car simulator is supported for [Linux](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/58ae46bb_linux-sim/linux-sim.zip), [MacOS](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/58ae4594_mac-sim.app/mac-sim.app.zip), and [Windows](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/58ae4419_windows-sim/windows-sim.zip). I have also collected the data from simulator, but it seems like the model works better with the udacity's data. 
 
 #### Model Architecture and Training Strategy
 
-##### Model
-The model architecture is inherited from nvidia architecture which has been verified for autonomous driving vehicles. 
++ The model architecture is inherited from nvidia architecture which has been verified for autonomous driving vehicles. 
 ![Nvidia model][image4]
 
-I modified the model architecture as below, with 5 convolutional layers and 5 Fully-connected layers.   
++ I modified the model architecture as below, with 5 convolutional layers and 5 Fully-connected layers.   
 
 | Layer (type)                  |  Output Shape      | Param#|    Connected to     |
 |:-----------------------------:|:------------------:|:-----:|:-------------------:|
@@ -104,9 +103,17 @@ I modified the model architecture as below, with 5 convolutional layers and 5 Fu
 |dense_4 (Dense)                | (None, 10)         | 210   |dropout_3[0][0]      |           
 |dense_5 (Dense)                | (None, 1)          | 11    |dense_4[0][0]        |           
 
-As can be seen in the table, the model uses dropout layers (=0.5) to prevent overfitting, and the train/validation/test splits have been used in `get_log()`. The model parameters for tuning are `batch_size=64` and number of epochs `num_epoch=20`. I used the `Adam` optimizer for the model. 
++ As can be seen in the table, the model uses dropout layers (=0.5) to prevent overfitting, and the train/validation/test splits have been used in `get_log()`. The model parameters for tuning are `batch_size=64` and number of epochs `num_epoch=20`. I used the `Adam` optimizer for the model. 
 
-### Train the model 
+##### Train the model strategy
+
++ At first, I used the model with a flatten and a fully-connected layer, and the driving was bad, the car went off the track and sinked to the lake at the started point. Then, I used the upgraded LeNet model built in the last project, it got better but still running off the road if the steering angle is too high. After that I replaced that model using Nvidia model. 
+
++ This time, the driving got better, but still went off the road when it crosses the shadow or brightness areas. So I used brightness method and shadow augmentation to train the model to deal with these issues. The driving got better when crossing the shadow and bridge areas.
+
+![][image5] ![][image6] ![][image7] 
+
+
 
 My model has been trained using AWS EC2 from Amazon. After I launched an GPU instances, it contains the IP address that helps me to access to that for training the model.
 * Copy from local (model.py and data.zip) to AWS
@@ -194,6 +201,12 @@ This figure shows that the loss is small.
 After copied the `model.h5` to my laptop (Macbook pro 16GB 1600MHz DDR3, 2.2 GHz Intel Core i7), running the simulation using command: `python drive.py model.h5`. 
 
 ### Solution
+
+I modified the model based on Nvidia architecture by adding more dropout layers to prevent overfitting. To deal with a large amount of data, I used data generator to train the model much more memory-efficient. The images have also been processed using the brightness technique, shadow augmentation technique, and flip images technique with the openCV libraries. 
+
+The model parameters are batch_size and number of epochs; other tuning parameters are s 
+
+
 
 
 
