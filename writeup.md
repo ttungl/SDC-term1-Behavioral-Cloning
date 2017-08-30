@@ -1,6 +1,5 @@
 ### SDC-term1
-[![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
-
+    
     Tung Thanh Le
     ttungl at gmail dot com
    
@@ -185,7 +184,8 @@ Epoch 20/20
 
 After training the model on AWS, I observed the relationship between the mean squared error (MSE) loss of training and validation datasets as below.
 
-![][image22] 
+<img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/loss_valid.png" height="258" width="500">
+
 This figure shows that the loss is small.
 
 ### Run the model on local machine
