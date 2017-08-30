@@ -47,8 +47,10 @@ The goals / steps of this project are the following:
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
 
+![test](https://github.com/favicon.ico | width=48)
 
-![][image1] ![][image2]
+![demo1][image1 | width=300] 
+<!-- ![demo2][image2] -->
 
 
 <!-- 
