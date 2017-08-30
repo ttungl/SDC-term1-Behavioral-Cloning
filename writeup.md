@@ -9,7 +9,7 @@
 ##### Project description: 
 + Use Deep Learning to Clone Driving Behavior.
 
-<img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/gifs/bridge1.gif" height="165" width="300">   <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/gifs/curve1.gif" height="165" width="300">  <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/gifs/view1.gif" height="165" width="300">
+<img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/gifs/bridge1.gif" height="165" width="300"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/gifs/curve1.gif" height="165" width="300"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/gifs/view1.gif" height="165" width="300">
 
 The goals / steps of this project are the following:
 * Use the simulator to collect data of good driving behavior.
