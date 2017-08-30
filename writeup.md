@@ -1,9 +1,5 @@
 #**Behavioral Cloning** 
 
-##Writeup Template
-
-###You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
-
 ---
 
 **Behavioral Cloning Project**
@@ -18,18 +14,47 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+[image1]: ./gifs/center1.gif "center line"
+[image2]: ./gifs/brigde1.gif "crossing the bridge"
+[image3]: ./gifs/curve2.gif "curve 1"
+[image4]: ./gifs/curve3.gif "curve 2"
+
+[image5]: ./images_output/center_output.png "center image"
+[image6]: ./images_output/left_output.png "left image"
+[image7]: ./images_output/right_output.png "right image"
+
+[image8]: ./images_output/bgr_image_input.png "bgr"
+[image9]: ./images_output/rgb_image_input.png "rgb output"
+
+[image10]: ./images_output/brightness1.png "brightness 1"
+[image11]: ./images_output/brightness2.png "brightness 2"
+[image12]: ./images_output/brightness3.png "brightness 3"
+[image13]: ./images_output/brightness4.png "brightness 4"
+
+[image14]: ./images_output/shadow1.png "shadow 1"
+[image15]: ./images_output/shadow2.png "shadow 2"
+[image16]: ./images_output/shadow4.png "shadow 4"
+[image17]: ./images_output/shadow6.png "shadow 6"
+[image18]: ./images_output/shadow8.png "shadow 8"
+[image19]: ./images_output/shadow9.png "shadow 9"
+
+[image20]: ./images_output/right_input.png "right input flip"
+[image21]: ./images_output/right_input_flipped.png "flipped to left"
+
+[image22]: ./images_output/loss_valid.png "MSE loss"
+
+
+
 
 ## Rubric Points
-###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
+### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
 
----
+
+![alt text][image1] ![alt text][image2]
+![alt text][image3] ![alt text][image4]
+
+
+<!-- 
 ###Files Submitted & Code Quality
 
 ####1. Submission includes all required files and can be used to run the simulator in autonomous mode
@@ -126,4 +151,4 @@ After the collection process, I had X number of data points. I then preprocessed
 
 I finally randomly shuffled the data set and put Y% of the data into a validation set. 
 
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary. -->
