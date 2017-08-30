@@ -39,10 +39,12 @@ The model uses severval methods for images processing and use a modified convolu
 * `get_log()`: uses to read the data log from `driving_log.csv`, then shuffling the datasets, splits into the training sets and validation sets with the ratio of `80`:`20`. `random_state` is used for [initializing internal random number generator](https://stackoverflow.com/a/42197534/2881205), which decides the splitting of data into train and test indices. Finally, it returns the training set and validation set.
 
 I read the data input using openCV library `cv2.imread`, so the image is BGR color as on the left, and on the right, the image is converted to RGB:
+
 <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/bgr_image_input.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/rgb_image_input.png" height="144" width="270"> 
 
 
 The input images
+
 <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/center_output.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/left_output.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/right_output.png" height="144" width="270">
 
 * `brightness_process(image)`: uses to process the brightness of the image. The images after processing are as follows.
