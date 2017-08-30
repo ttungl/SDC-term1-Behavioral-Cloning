@@ -61,7 +61,7 @@ The input images (center, left, right)
 
 * `process_images(center_path, left_path, right_path, steering, images, steering_set)`: uses to process the images input on the center, left, and right angles. If the steering angle is greater than the steering threshold, it will flip the image to recover into the center track. After playing a couple of experiments with the tuning parameters, I fixed my tuning parameters with `steering_correction` = `0.15` and `steering_threshold` = `0.285` for the best performance of my model. 
 
-The left side of the car is flipped to its right side when the steering angle is greater than the steering_threshold.
+The right side of the car is flipped to its left side when the steering angle is greater than the steering_threshold.
 
 <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/right_input.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/right_input_flipped.png" height="144" width="270">
 
@@ -202,6 +202,6 @@ The result is expected as below with two full laps without waggling off the road
 
 ### Conclusion
 
-The model has successfully been trained and tested on the track one of the simulator with the autonomous mode without falling out of the track. There still have something that need to be improved such as the driving becomes waggling at the start when I speed up to over 20 mph. I probably need to implement an accelerator which allows the car increases the speed slowly, then speed up when the car stays on the center. Another thing is that the model cannot be able to handle the challenge track (jungle one). To improve this, I think it'd be better to integrate the finding line detection to keep the car on the road.
+The model has successfully been trained and tested on track one of the simulator with the autonomous mode without falling out of the track. There still have something that need to be improved such as the driving becomes waggling at the start when I speed up to over 20 mph. I probably need to implement an accelerator which allows the car increases the speed slowly, then speed up when the car stays on the center. Another thing is that the model cannot be able to handle the challenge track (jungle track). To improve this, I think it'd be better to integrate the finding line detection to keep the car on the road.
 
 ---
