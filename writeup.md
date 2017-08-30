@@ -14,10 +14,8 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./gifs/center1.gif "center line"
-[image2]: ./gifs/brigde1.gif "crossing the bridge"
-[image3]: ./gifs/curve2.gif "curve 1"
-[image4]: ./gifs/curve3.gif "curve 2"
+[image1]: ./gifs/brigde1.gif "crossing the bridge"
+[image2]: ./gifs/curve1.gif "curve 1"
 
 [image5]: ./images_output/center_output.png "center image"
 [image6]: ./images_output/left_output.png "left image"
