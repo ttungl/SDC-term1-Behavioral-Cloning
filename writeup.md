@@ -50,11 +50,11 @@
 This implementation followed the [rubric points](https://review.udacity.com/#!/rubrics/432/view). The details will be explained in the next sections.  
 
 #### My submission includes the required files: 
-* [model.py](https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/model.py) script used to create and train the model.
-* [drive.py](https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/drive.py) script to drive the car.
-* [model.h5](https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/model.h5) a trained Keras model.
-* [a report](https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/writeup.md) writeup file.
-* [video.mp4](https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/video.mp4) (a video recording of your vehicle driving autonomously around the track for at least one full lap).
+* [model.py](https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/model.py): script used to create and train the model.
+* [drive.py](https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/drive.py): script to drive the car.
+* [model.h5](https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/model.h5): a trained Keras model.
+* [a report](https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/writeup.md).
+* [video.mp4](https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/video.mp4): a video recording of my vehicle driving autonomously around the track for two full laps.
 
 #### Quality of Code
 
@@ -111,8 +111,10 @@ I used the [data](https://d17h27t6h515a5.cloudfront.net/topher/2016/December/584
 
 + This time, the driving got better, but still went off the road when it crosses the shadow or brightness areas. So I used brightness method and shadow augmentation to train the model to deal with these issues. The driving got better when crossing the shadow and bridge areas.
 
-![][image5] ![][image6] ![][image7] 
-
+```
+Input images
+<img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/center_output.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/left_output.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/right_output.png" height="144" width="270">
+```
 
 
 My model has been trained using AWS EC2 from Amazon. After I launched an GPU instances, it contains the IP address that helps me to access to that for training the model.
