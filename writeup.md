@@ -14,9 +14,6 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./gifs/brigde1.gif "crossing the bridge"
-[image2]: ./gifs/curve1.gif "curve 1"
-
 [image5]: ./images_output/center_output.png "center image"
 [image6]: ./images_output/left_output.png "left image"
 [image7]: ./images_output/right_output.png "right image"
@@ -50,7 +47,7 @@ The goals / steps of this project are the following:
 <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/gifs/bridge1.gif" height="165" width="300">   <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/gifs/curve1.gif" height="165" width="300">
 
 
-<!-- ![demo2][image2] -->
+![][image5]
 
 
 <!-- 
