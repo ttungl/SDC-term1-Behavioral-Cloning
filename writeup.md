@@ -68,7 +68,7 @@ The model uses severval methods for images processing and use a modified convolu
 
 * `brightness_process(image)`: uses to process the brightness of the image. 
 
-* `shadow_augmentation(image)`: uses to create the shadow for the images. This method has been inspired from [here](refer to: https://chatbotslife.com/using-augmentation-to-mimic-human-driving-496b569760a9). The basic idea is to create the random shadows to mask on the images.
+* `shadow_augmentation(image)`: uses to create the shadow for the images. This method has been inspired from [here](https://chatbotslife.com/using-augmentation-to-mimic-human-driving-496b569760a9). The basic idea is to create the random shadows to mask on the images.
 
 * `process_images(center_path, left_path, right_path, steering, images, steering_set)`: uses to process the images input on the center, left, and right angles. If the steering angle is greater than the steering threshold, it will flip the image to recover into the center track. After playing a couple of experiments with the tuning parameters, I fixed my tuning parameters with `steering_correction` = `0.15` and
 `steering_threshold` = `0.285` for the best performance of my model. 
