@@ -62,7 +62,7 @@ The input images (center, left, right)
 
 * `process_images(center_path, left_path, right_path, steering, images, steering_set)`: uses to process the images input on the center, left, and right angles. If the steering angle is greater than the steering threshold, it will flip the image to recover into the center track. After playing a couple of experiments with the tuning parameters, I fixed my tuning parameters with `steering_correction` = `0.15` and `steering_threshold` = `0.285` for the best performance of my model. 
 
-The left side of the car is flipped to its right side when the steering angle is greater than the steering_threshold.
+The right side of the car is flipped to its left side when the steering angle is greater than the steering_threshold.
 
 <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/right_input.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/right_input_flipped.png" height="144" width="270">
 
