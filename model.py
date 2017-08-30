@@ -148,7 +148,7 @@ def run_the_network():
 	model.fit_generator(training_set_generator, samples_per_epoch= samples_per_epoch, validation_data=validation_set_generator, nb_val_samples=nb_val_samples, nb_epoch=num_epoch, verbose=1)
 
 	# save model
-	model.save('model_11.h5')
+	model.save('model.h5')
 
 # run the network
 run_the_network()
