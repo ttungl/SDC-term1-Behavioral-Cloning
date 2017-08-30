@@ -47,9 +47,10 @@ The goals / steps of this project are the following:
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
 
-![test](https://github.com/favicon.ico | width=48)
+<img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/gifs/bridge1.gif" height="300" width="165">
+<img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/gifs/curve1.gif" height="300" width="165">
 
-![demo1][image1 | width=300] 
+
 <!-- ![demo2][image2] -->
 
 
