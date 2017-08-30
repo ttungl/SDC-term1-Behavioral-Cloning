@@ -12,10 +12,9 @@ import csv
 import cv2
 
 
-# .2[.3]; .25; .35; 
-# tuning parameters [correction, threshold]
-steering_correction = 0.15 # [.15,.285]; [.1,.285]; 
-steering_threshold = 0.285 # 
+# tuning parameters 
+steering_correction = 0.15 
+steering_threshold = 0.285  
 batch_size = 64
 num_epoch = 20
 
@@ -89,12 +88,12 @@ def process_images(center_path, left_path, right_path, steering, images, steerin
 	right_image = shadow_augmentation(right_image)
 	images.append(right_image)
 	steering_set.append(steering - steering_correction)
-	if abs(steering) > steering_threshold: # .33; 0.3; 
+	if abs(steering) > steering_threshold:
 		images.append(cv2.flip(center_image, 1)) 	# flip images (augmentation)
 		steering_set.append(-steering)
-		images.append(cv2.flip(left_image, 1))		# flip images
+		images.append(cv2.flip(left_image, 1))		
 		steering_set.append(-(steering + steering_correction))
-		images.append(cv2.flip(right_image, 1))		# flip images
+		images.append(cv2.flip(right_image, 1))		
 		steering_set.append(-(steering - steering_correction))
 
 def generators(datasets, batch_size=batch_size):
@@ -109,7 +108,7 @@ def generators(datasets, batch_size=batch_size):
 				process_images(line[0], line[1], line[2], steering, images, steering_set)
 			X_train = np.asarray(images)
 			y_train = np.asarray(steering_set)
-			yield shuffle(X_train, y_train, random_state=100) # yields (batch_size * 3) data points per epoch.
+			yield shuffle(X_train, y_train, random_state=100) 
 
 def nvidia_model():
 	'''Nvidia architectural model with dropout in FCs.'''
@@ -126,23 +125,22 @@ def nvidia_model():
 	model.add(Dropout(0.5))
 	model.add(Dense(50))
 	model.add(Dropout(0.5))
-	# model.add(Dense(32))
-	# model.add(Dropout(0.5))
+	model.add(Dense(20))
+	model.add(Dropout(0.5))
 	model.add(Dense(10))
 	model.add(Dense(1))
 	model.summary()
 	return model
 
 def run_the_network():
-	# architectural network nvidia-based
+	# architectural network (nvidia-based)
 	model = nvidia_model()
 	# get data
 	training_set, validation_set = get_log()
 	# train the model and fit generator
 	training_set_generator = generators(training_set, batch_size=batch_size)
 	validation_set_generator = generators(validation_set, batch_size=batch_size)
-
-	## params for fit generator
+	# params for fit generator
 	samples_per_epoch = (3*len(training_set)//batch_size)*batch_size
 	nb_val_samples = len(validation_set)
 
