@@ -43,13 +43,14 @@ I read the data input using openCV library `cv2.imread`, so the image is BGR col
 <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/bgr_image_input.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/rgb_image_input.png" height="144" width="270"> 
 
 
-The input images
+The input images (center, left, right)
 
 <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/center_output.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/left_output.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/right_output.png" height="144" width="270">
 
 * `brightness_process(image)`: uses to process the brightness of the image. The images after processing are as follows.
 
 <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/brightness1.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/brightness2.png" height="144" width="270"> 
+
 <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/brightness3.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/brightness4.png" height="144" width="270"> 
 
 * `shadow_augmentation(image)`: uses to create the shadow for the images. This method has been inspired from [here](https://chatbotslife.com/using-augmentation-to-mimic-human-driving-496b569760a9). The basic idea is to create the random shadows to mask on the images. The output of this method is as below.
