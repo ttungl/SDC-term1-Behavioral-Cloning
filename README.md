@@ -203,7 +203,7 @@ The result is expected as below with two full laps without waggling off the road
 
 ### Conclusion
 
-The model has successfully been trained and tested on the track one of the simulator with the autonomous mode without falling out of the track. There still have something that need to be improved such as the driving becomes waggling at the start when I speed up to over 20 mph. I probably need to implement an accelerator which allows the car increases the speed slowly, then speed up when the car stays on the center. Another thing is that the model cannot be able to handle the challenge track (jungle one). To improve this, I think it'd be better to integrate the finding line detection to keep the car on the road.
+The model has successfully been trained and tested on track one of the simulator with the autonomous mode without falling out of the track. There still have something that need to be improved such as the driving becomes waggling at the start when I speed up to over 20 mph. I probably need to implement an accelerator which allows the car increases the speed slowly, then speed up when the car stays on the center. Another thing is that the model cannot be able to handle the challenge track (jungle track). To improve this, I think it'd be better to integrate the finding line detection to keep the car on the road.
 
 ---
 
