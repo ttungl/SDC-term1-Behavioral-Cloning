@@ -6,18 +6,18 @@
 **Behavioral Cloning Project**
 ---
 
-##### Project description: 
+#### Project description: 
 + Use Deep Learning to Clone Driving Behavior.
++ The results are below with [video demo](https://youtu.be/xCkk7keDe5w)
 
 <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/gifs/bridge1.gif" height="149" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/gifs/curve1.gif" height="149" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/gifs/view1.gif" height="149" width="270">
 
-The goals / steps of this project are the following:
+#### The goals / steps of this project are the following:
 * Use the simulator to collect data of good driving behavior.
 * Build, a convolution neural network (CNN) in Keras that predicts steering angles from images.
 * Train and validate the model with a training and validation set.
 * Test that the model successfully drives around track one without leaving the road.
 * Summarize the results with a written report.
-
 
 [//]: # (Image References)
 
@@ -48,29 +48,21 @@ The goals / steps of this project are the following:
 
 This implementation followed the points of [rubric points](https://review.udacity.com/#!/rubrics/432/view). The details will be explained in the next sections.  
 
-My submission includes the required files: 
+### My submission includes the required files: 
 * [model.py](https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/model.py) script used to create and train the model.
 * [drive.py](https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/drive.py) script to drive the car.
 * [model.h5](https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/model.h5) a trained Keras model.
 * [a report](https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/writeup.md) writeup file.
 * [video.mp4](https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/video.mp4) (a video recording of your vehicle driving autonomously around the track for at least one full lap).
 
-#### Quality of Code
-
-CRITERIA
-MEETS SPECIFICATIONS
-Is the code functional?
+### Quality of Code
 
 The model provided can be used to successfully operate the simulation.
 
-Is the code usable and readable?
+The code in model.py uses a Python generator, to generate data for training rather than storing the training data in memory. The model.py code is clearly organized and comments are included where needed.
 
-The code in model.py uses a Python generator, if needed, to generate data for training rather than storing the training data in memory. The model.py code is clearly organized and comments are included where needed.
+### Model Architecture and Training Strategy
 
-Model Architecture and Training Strategy
-
-CRITERIA
-MEETS SPECIFICATIONS
 Has an appropriate model architecture been employed for the task?
 
 The neural network uses convolution layers with appropriate filter sizes. Layers exist to introduce nonlinearity into the model. The data is normalized in the model.
@@ -89,8 +81,8 @@ Training data has been chosen to induce the desired behavior in the simulation (
 
 Architecture and Training Documentation
 
-CRITERIA
-MEETS SPECIFICATIONS
+### Solution
+
 Is the solution design documented?
 
 The README thoroughly discusses the approach taken for deriving and designing a model architecture fit for solving the given problem.
@@ -103,10 +95,8 @@ Is the creation of the training dataset and training process documented?
 
 The README describes how the model was trained and what the characteristics of the dataset are. Information such as how the dataset was generated and examples of images from the dataset must be included.
 
-Simulation
+### Conclusion
 
-CRITERIA
-MEETS SPECIFICATIONS
 Is the car able to navigate correctly on test data?
 
 No tire may leave the drivable portion of the track surface. The car may not pop up onto ledges or roll over any surfaces that would otherwise be considered unsafe (if humans were in the vehicle). 
