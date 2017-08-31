@@ -32,7 +32,7 @@ This implementation followed the [rubric points](https://review.udacity.com/#!/r
 
 The model provided can be used to successfully operate the simulation.
 
-The code in `model.py` uses a Python generator, to generate data for training rather than storing the training data in memory. The `model.py` code is clearly comments where needed. 
+The code in `model.py` uses a Python generator, to generate data for training rather than storing the training data in memory. The `model.py` code is clearly commented where needed. 
 
 The model uses severval methods for images processing and use a modified convolutional neural network from [nVidia architecture](http://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf).
 
