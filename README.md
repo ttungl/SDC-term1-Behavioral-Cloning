@@ -35,7 +35,7 @@ The model provided can be used to successfully operate the simulation.
 
 The code in `model.py` uses a Python generator, to generate data for training rather than storing the training data in memory. The `model.py` code is clearly commented where needed. 
 
-The model uses severval methods for images processing and use a modified convolutional neural network from [nVidia architecture](http://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf).
+The model uses severval methods for images processing and uses a modified convolutional neural network from [nVidia architecture](http://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf).
 
 * `get_log()`: uses to read the data log from `driving_log.csv`, then shuffling the datasets, splits into the training sets and validation sets with the ratio of `80`:`20`. `random_state` is used for [initializing internal random number generator](https://stackoverflow.com/a/42197534/2881205), which decides the splitting of data into train and test indices. Finally, it returns the training set and validation set.
 
