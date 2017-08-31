@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.utils import shuffle
 # keras libs
 from keras import backend
-from keras.models import Sequential, model_from_json
+from keras.models import Sequential
 from keras.layers import Flatten, Dense, Lambda, Dropout
 from keras.layers import Convolution2D, Cropping2D
 # misc. import
