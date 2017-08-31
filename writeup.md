@@ -36,7 +36,7 @@ The code in `model.py` uses a Python generator, to generate data for training ra
 
 The model uses severval methods for images processing and uses a modified convolutional neural network from [nVidia architecture](http://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf).
 
-* `get_log()`: uses to read the data log from `driving_log.csv`, then shuffling the datasets, splits into the training sets and validation sets with the ratio of `80`:`20`. `random_state` is used for [initializing internal random number generator](https://stackoverflow.com/a/42197534/2881205), which decides the splitting of data into train and test indices. Finally, it returns the training set and validation set.
+* `get_log()`: is used to read the data log from `driving_log.csv`, then shuffling the datasets, splits into the training sets and validation sets with the ratio of `80`:`20`. `random_state` is used for [initializing internal random number generator](https://stackoverflow.com/a/42197534/2881205), which decides the splitting of data into train and test indices. Finally, it returns the training set and validation set.
 
 I read the data input using openCV library `cv2.imread`, so the image is BGR color as on the left, and on the right, the image is converted to RGB:
 
@@ -47,25 +47,25 @@ The input images (center, left, right)
 
 <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/center_output.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/left_output.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/right_output.png" height="144" width="270">
 
-* `brightness_process(image)`: uses to process the brightness of the image. The images after processing are as follows.
+* `brightness_process(image)`: is used to process the brightness of the image. The images after processing are as follows.
 
 <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/brightness1.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/brightness2.png" height="144" width="270"> 
 
 <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/brightness3.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/brightness4.png" height="144" width="270"> 
 
-* `shadow_augmentation(image)`: uses to create the shadow for the images. This method has been inspired from [here](https://chatbotslife.com/using-augmentation-to-mimic-human-driving-496b569760a9). The basic idea is to create the random shadows to mask on the images. The output of this method is as below.
+* `shadow_augmentation(image)`: is used to create the shadow for the images. This method has been inspired from [here](https://chatbotslife.com/using-augmentation-to-mimic-human-driving-496b569760a9). The basic idea is to create the random shadows to mask on the images. The output of this method is as below.
 
 <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/shadow1.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/shadow2.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/shadow4.png" height="144" width="270"> 
 
 <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/shadow6.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/shadow8.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/shadow9.png" height="144" width="270"> 
 
-* `process_images(center_path, left_path, right_path, steering, images, steering_set)`: uses to process the images input on the center, left, and right angles. If the steering angle is greater than the steering threshold, it will flip the image to recover into the center track. After playing a couple of experiments with the tuning parameters, I fixed my tuning parameters with `steering_correction` = `0.15` and `steering_threshold` = `0.285` for the best performance of my model. 
+* `process_images(center_path, left_path, right_path, steering, images, steering_set)`: is used to process the images input on the center, left, and right angles. If the steering angle is greater than the steering threshold, it will flip the image to recover into the center track. After playing a couple of experiments with the tuning parameters, I fixed my tuning parameters with `steering_correction` = `0.15` and `steering_threshold` = `0.285` for the best performance of my model. 
 
 The right side of the car is flipped to its left side when the steering angle is greater than the steering_threshold.
 
 <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/right_input.png" height="144" width="270"> <img src="https://github.com/ttungl/SDC-term1-Behavioral-Cloning/blob/master/images_output/right_input_flipped.png" height="144" width="270">
 
-* `generators(datasets, batch_size=batch_size)`: uses a [data generator](https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/) to work with large amount of data for more memory-efficient. 
+* `generators(datasets, batch_size=batch_size)`: is used for [data generator](https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/) to work with large amount of data for more memory-efficient. 
 
 I used the [data](https://d17h27t6h515a5.cloudfront.net/topher/2016/December/584f6edd_data/data.zip) provided by Udacity for training my model. The car simulator is supported for [Linux](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/58ae46bb_linux-sim/linux-sim.zip), [MacOS](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/58ae4594_mac-sim.app/mac-sim.app.zip), and [Windows](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/58ae4419_windows-sim/windows-sim.zip). I have also collected the data from simulator, but it seems like the model works better with the udacity's data. 
 
