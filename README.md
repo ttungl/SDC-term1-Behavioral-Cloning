@@ -191,7 +191,7 @@ This figure shows that the loss is small.
 
 ### Run the model on local machine
 
-After copied the `model.h5` to my laptop (Macbook pro 16GB 1600MHz DDR3, 2.2 GHz Intel Core i7), running the simulation using command: `python drive.py model.h5`. 
+After copying the `model.h5` to my laptop (Macbook pro 16GB 1600MHz DDR3, 2.2 GHz Intel Core i7), running the simulation using command: `python drive.py model.h5`. Then, open the simulator and select the autonomous mode for running the trained model.
 
 ### Solution
 
